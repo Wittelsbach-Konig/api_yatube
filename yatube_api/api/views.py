@@ -1,11 +1,13 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
-from rest_framwork.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 
 from posts.models import Group, Post
 
-from .serializers import PostSerializer, GroupSerializer, CommentSerializer
 from .permissions import AuthorOrReadOnly
+from .serializers import (CommentSerializer,
+                          GroupSerializer,
+                          PostSerializer)
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -19,7 +21,7 @@ class PostViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     """ВьюСет для Групп."""
 
     queryset = Group.objects.all()

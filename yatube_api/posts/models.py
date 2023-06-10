@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-
 MAX_LEN_TO_STR = 200  # Максимальный размер строки
 User = get_user_model()
 

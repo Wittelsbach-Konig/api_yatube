@@ -2,7 +2,6 @@ from django.contrib import admin
 
 from .models import Comment, Group, Post
 
-
 MAX_MESS_SIZE = 30  # Максимальный размер выводимого текста, при создании поста
 
 
