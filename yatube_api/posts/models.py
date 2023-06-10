@@ -25,7 +25,6 @@ class Group(models.Model):
         return self.title[:MAX_LEN_TO_STR]
 
     class Meta:
-        ordering = ('title',)
         verbose_name = 'Группа'
         verbose_name_plural = 'Группы'
 
@@ -71,7 +70,6 @@ class Post(models.Model):
         return self.text[:MAX_LEN_TO_STR]
 
     class Meta:
-        ordering = ('-pub_date',)
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
 
@@ -97,7 +95,6 @@ class Comment(models.Model):
     )
 
     class Meta:
-        ordering = ('-pub_date',)
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
