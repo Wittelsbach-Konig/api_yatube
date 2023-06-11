@@ -20,12 +20,12 @@ class Group(models.Model):
                             unique=True)
     description = models.TextField('Описание')
 
-    def __str__(self):
-        return self.title[:MAX_LEN_TO_STR]
-
     class Meta:
         verbose_name = 'Группа'
         verbose_name_plural = 'Группы'
+
+    def __str__(self):
+        return self.title[:MAX_LEN_TO_STR]
 
 
 class Post(models.Model):
@@ -52,7 +52,6 @@ class Post(models.Model):
     image = models.ImageField(
         'Картинка',
         upload_to='posts/',
-        null=True,
         blank=True
     )
     group = models.ForeignKey(
@@ -65,12 +64,12 @@ class Post(models.Model):
         help_text='Группа, к которой будет отсносится пост',
     )
 
-    def __str__(self):
-        return self.text[:MAX_LEN_TO_STR]
-
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
+
+    def __str__(self):
+        return self.text[:MAX_LEN_TO_STR]
 
 
 class Comment(models.Model):
